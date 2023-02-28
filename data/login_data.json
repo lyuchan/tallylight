@@ -1,0 +1,12 @@
+[
+    {
+        "name": "管理員",
+        "uuid": "admin",
+        "password": "super_password"
+    },
+    {
+        "name": "王律承",
+        "uuid": "810016",
+        "password": "password"
+    }
+]

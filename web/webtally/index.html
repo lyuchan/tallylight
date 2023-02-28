@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>tally light</title>
+</head>
+<script>
+    /**
+
+                                                     __----~~~~~~~~~~~------___
+                                    .  .   ~~//====......          __--~ ~~
+                    -.            \_|//     |||\\  ~~~~~~::::... /~
+                 ___-==_       _-~o~  \/    |||  \\            _/~~-
+         __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+     _-~~     .=~    |  \\-_    '-~7  /-   /  ||    \      /
+   .~       .~       |   \\ -_    /  /-   /   ||      \   /
+  /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+  |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+           '         ~-|      /|    |-~\~~       __--~~
+                       |-~~-_/ |    |   ~\_   _-~            /\
+                            /  \     \__   \/~                \__
+                        _--~ _/ | .-~~____--~-/                  ~~==.
+                       ((->/~   '.|||' -_|    ~~-/ ,              . _||
+                                  -_     ~\      ~~---l__i__i__i--~~_/
+                                  _-~-__   ~)  \--______________--~~
+                                //.-~~~-~_--~- |-------~~~~~~~~
+                                       //.-~~~--\
+                                神獸保佑，程式碼沒Bug!
+    
+*/
+    let tally = prompt("請輸入tally編號");
+    let url = window.location.href//取得當前網址
+    url = url.replace("https://", "");//去除https
+    url = url.replace("http://", "");//去除http
+    url = url.replace("webtally", "");//去除/
+    url = url.replace("/", "");//去除/
+    url = "ws://" + url;//加入ws://
+    let back = document.getElementById("back")
+    let ws = new WebSocket(url)
+    // 監聽連線狀態
+    ws.onopen = () => {
+
+    }
+    ws.onclose = () => {
+    }
+    //接收 Server 發送的訊息
+    ws.onmessage = event => {
+        let res = JSON.parse(event.data);
+        if (res.get == "sendtally") {
+            if (tally == res.pgm && res.pwv == tally) {//yello
+                document.body.style.backgroundColor = "#ffff00"
+            }
+            if (tally == res.pgm && res.pwv != tally) {//red
+                document.body.style.backgroundColor = "#ff0000"
+            }
+            if (tally != res.pgm && res.pwv == tally) {//green
+                document.body.style.backgroundColor = "#00ff00"
+            }
+            if (tally != res.pgm && res.pwv != tally) {//black
+                document.body.style.backgroundColor = "#000000"
+            }
+        }
+
+
+    }
+
+
+
+</script>
+
+<body id="back" style="background-color: #000000">
+
+
+
+
+</body>
+
+</html>

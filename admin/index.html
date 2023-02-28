@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Static Template</title>
+  <script src="./index.js"></script>
+  <style>
+    main>div {
+      display: grid;
+      grid-template-columns: 2rem 6rem 6rem 8rem 6rem 12rem;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+    }
+
+    main>div>div {
+      display: flex;
+      gap: 0.75rem;
+      margin-left: auto;
+    }
+
+    .bold {
+      border-bottom: 3px solid white;
+    }
+
+    html,
+    body {
+      font-family: "Microsoft YaHei";
+      color: white;
+      background: black;
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+
+    input,
+    select {
+      border: 1px solid white;
+      border-radius: 3px;
+      padding: 0.5rem 0.75rem;
+      font-size: 16px;
+    }
+
+    button {
+      border-radius: 3px;
+      outline: none;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
+    }
+
+    button.success {
+      color: #2c2c2c;
+      background: #6bce9a;
+    }
+
+    button.danger {
+      color: snow;
+      background: #f04947;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="bold">
+      <span>編號</span>
+      <span>姓名</span>
+      <span>學號</span>
+      <span>卡號</span>
+      <span>組別</span>
+      <div></div>
+    </div>
+    <div class="bold" id="bold">
+      <span>1.</span>
+      <span>WuuBoLin</span>
+      <input value="101010" />
+      <input value="21317620071" />
+      <select>
+        <option>設計組</option>
+        <option>機械組</option>
+        <option>程式組</option>
+        <option>行政組</option>
+      </select>
+      <div>
+        <button class="success">更新</button>
+        <button class="danger">刪除</button>
+      </div>
+
+    </div>
+
+  </main>
+</body>
+
+</html>

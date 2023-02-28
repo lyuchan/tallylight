@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "express": "^4.18.2",
+    "obs-websocket-js": "^4.0.3",
+    "websocket": "^1.0.34",
+    "ws": "^8.12.1"
+  }
+}
